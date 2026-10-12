@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ЛингвоКласс — английский для школьников</title>
+<meta name="description" content="Английский для школьников с нуля, помощь со школьной программой, индивидуальные занятия, подготовка к ОГЭ и ЕГЭ.">
+
+<style>
+:root {
+  --ink: #202b43;
+  --muted: #647087;
+  --cream: #fbf8f1;
+  --blue: #dcecff;
+  --yellow: #ffd65a;
+  --mint: #d9f3e7;
+  --purple: #e8e0ff;
+  --line: #e8e7e1;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+
+.container {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+header { padding: 20px 0; }
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 23px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.logo span { color: #7185ca; }
+
+.navlinks {
+  display: flex;
+  gap: 22px;
+  font-size: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 30px;
+  background: var(--ink);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn.yellow {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.btn.white {
+  background: white;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+/* Главный экран */
+
+.hero { padding: 65px 0 75px; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 30px;
+  background: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(42px, 6vw, 70px);
+  line-height: 1;
+  letter-spacing: -3px;
+  margin: 24px 0;
+}
+
+h1 em {
+  font-style: normal;
+  color: #647ac0;
+}
+
+.hero p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.stats {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.stats strong {
+  display: block;
+  font-size: 22px;
+}
+
+.stats small { color: var(--muted); }
+
+/* Декоративная иллюстрация */
+
+.art {
+  min-height: 370px;
+  border-radius: 35px;
+  background: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.sun {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: var(--yellow);
+}
+
+.book {
+  position: relative;
+  background: white;
+  width: 250px;
+  height: 175px;
+  border: 3px solid var(--ink);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transform: rotate(-5deg);
+  box-shadow: 0 15px #b5c9e5;
+}
+
+.book div {
+  font-size: 55px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.book small {
+  display: block;
+  font-size: 13px;
+}
+
+.sticker {
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  font-weight: bold;
+  transform: rotate(-5deg);
+}
+
+/* Общие секции */
+
+section { padding: 65px 0; }
+
+.white-section { background: white; }
+
+.kicker {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #7180a0;
+}
+
+h2 {
+  font-size: clamp(30px, 4vw, 44px);
+  letter-spacing: -1.5px;
+  margin: 12px 0 18px;
+}
+
+.intro {
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 650px;
+}
+
+/* Каталог курсов */
+
+.filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.filter {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 11px 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.filter.active {
+  background: var(--ink);
+  color: white;
+}
+
+.tools {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+input, select {
+  font: inherit;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: white;
+  min-width: 0;
+}
+
+#search { flex: 1; }
+#grade { width: 190px; }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 23px;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px #202b4310;
+}
+
+.pill {
+  display: inline-block;
+  background: var(--mint);
+  border-radius: 20px;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: bold;
+  align-self: flex-start;
+}
+
+.card-icon {
+  font-size: 35px;
+  margin: 18px 0 8px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin: 5px 0 12px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.course-link {
+  margin-top: auto;
+  padding-top: 18px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.course-link span { float: right; }
+
+.empty {
+  display: none;
+  color: var(--muted);
+  padding: 30px;
+  grid-column: 1 / -1;
+}
+
+/* Маршрут ученика */
+
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+  margin-top: 30px;
+}
+
+.path {
+  padding: 27px;
+  border-radius: 24px;
+}
+
+.path:nth-child(1) { background: var(--yellow); }
+.path:nth-child(2) { background: var(--mint); }
+.path:nth-child(3) { background: var(--purple); }
+
+.path .number {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.path .emoji {
+  font-size: 38px;
+  margin: 20px 0;
+}
+
+.path h3 { font-size: 22px; }
+
+.path p {
+  line-height: 1.7;
+  font-size: 14px;
+  color: #46516a;
+}
+
+/* ОГЭ и ЕГЭ */
+
+.feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 45px;
+  align-items: center;
+}
+
+.feature-art {
+  min-height: 320px;
+  background: var(--purple);
+  border-radius: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 150px;
+  font-weight: 900;
+}
+
+.checklist {
+  padding: 0;
+  list-style: none;
+  line-height: 1.8;
+}
+
+.checklist li { margin: 12px 0; }
+
+/* Частые вопросы */
+
+.faq {
+  max-width: 800px;
+  margin: 25px auto 0;
+}
+
+.faq-item { border-bottom: 1px solid var(--line); }
+
+.question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  gap: 15px;
+  background: none;
+  border: 0;
+  padding: 22px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.answer {
+  display: none;
+  padding: 0 0 20px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.faq-item.open .answer { display: block; }
+
+/* Форма заявки */
+
+.cta-panel {
+  background: var(--ink);
+  color: white;
+  border-radius: 30px;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+}
+
+.cta-panel p {
+  color: #cbd2df;
+  line-height: 1.7;
+}
+
+.form {
+  background: white;
+  color: var(--ink);
+  border-radius: 20px;
+  padding: 22px;
+}
+
+.form input,
+.form select {
+  width: 100%;
+  margin-bottom: 11px;
+}
+
+.form .btn { width: 100%; }
+
+.form-note {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+#success {
+  display: none;
+  background: var(--mint);
+  padding: 12px;
+  border-radius: 12px;
+  color: #214f3b;
+  margin-top: 12px;
+}
+
+footer { padding: 30px 0; }
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+footer small { color: var(--muted); }
+
+/* Адаптация для телефона */
+
+@media(max-width: 800px) {
+  .hero-grid,
+  .feature,
+  .cta-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .navlinks { display: none; }
+
+  .cards { grid-template-columns: repeat(2, 1fr); }
+
+  .path-grid { grid-template-columns: 1fr; }
+
+  .art { min-height: 310px; }
+}
+
+@media(max-width: 540px) {
+  .cards { grid-template-columns: 1fr; }
+
+  .tools { flex-direction: column; }
+
+  #grade { width: 100%; }
+
+  .stats { gap: 15px; }
+
+  .stats strong { font-size: 18px; }
+
+  .hero { padding: 35px 0; }
+
+  .cta-panel { padding: 22px; }
+
+  h1 { letter-spacing: -2px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#top">лингво<span>класс</span></a>
+
+      <div class="navlinks">
+        <a href="#courses">Курсы</a>
+        <a href="#method">Как учимся</a>
+        <a href="#exam">ОГЭ и ЕГЭ</a>
+        <a href="#faq">Вопросы</a>
+      </div>
+
+      <a class="btn" href="#contact">Записаться ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div>
+      <div class="eyebrow">✦ Английский для 1–11 классов</div>
+
+      <h1>
+        Английский,<br>
+        который <em>получается</em>
+      </h1>
+
+      <p>
+        Помогаем заговорить на английском с нуля,
+        разобраться со школьной программой и уверенно
+        подготовиться к экзаменам — без страха ошибок
+        и бесконечной зубрёжки.
+      </p>
+
+      <div class="actions">
+        <a class="btn" href="#courses">Выбрать курс ↗</a>
+        <a class="btn yellow" href="#contact">Помогите выбрать</a>
+      </div>
+
+      <div class="stats">
+        <div>
+          <strong>1–11</strong>
+          <small>классы</small>
+        </div>
+        <div>
+          <strong>С нуля</strong>
+          <small>начинаем с базы</small>
+        </div>
+        <div>
+          <strong>1:1 + группы</strong>
+          <small>удобный формат</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="art">
+      <div class="sun"></div>
+      <div class="sticker">Let's learn! ✨</div>
+      <div class="book">
+        <div>A<small>HELLO!</small></div>
+        <div>Я<small>LET'S GO</small></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="white-section" id="courses">
+<div class="container">
+
+  <div class="kicker">Наши программы</div>
+  <h2>Найдём ваш английский</h2>
+
+  <p class="intro">
+    Выберите класс и задачу. Если ребёнок потерялся
+    в школьной программе, начнём с индивидуальных
+    занятий, восстановим базу и поможем перейти в группу.
+  </p>
+
+  <div class="filters">
+    <button class="filter active" data-filter="all">Все курсы</button>
+    <button class="filter" data-filter="start">С нуля</button>
+    <button class="filter" data-filter="school">Школьная программа</button>
+    <button class="filter" data-filter="individual">Индивидуально</button>
+    <button class="filter" data-filter="exam">ОГЭ и ЕГЭ</button>
+  </div>
+
+  <div class="tools">
+    <input id="search" type="search" placeholder="Найти курс...">
+
+    <select id="grade">
+      <option value="all">Все классы</option>
+      <option value="1">1 класс</option>
+      <option value="2">2 класс</option>
+      <option value="3">3 класс</option>
+      <option value="4">4 класс</option>
+      <option value="5">5 класс</option>
+      <option value="6">6 класс</option>
+      <option value="7">7 класс</option>
+      <option value="8">8 класс</option>
+      <option value="9">9 класс</option>
+      <option value="10">10 класс</option>
+      <option value="11">11 класс</option>
+    </select>
+  </div>
+
+  <div class="cards" id="courseCards">
+
+    <article class="card"
+      data-tags="start"
+      data-grades="1,2,3,4,5,6,7,8,9,10,11">
+      <span class="pill">Начальный уровень</span>
+      <div class="card-icon">🌱</div>
+      <h3>Английский с нуля</h3>
+      <p>
+        Для детей, которые только начинают знакомство
+        с языком. Буквы, слова, простые фразы,
+        понимание речи и первые диалоги.
+      </p>
+      <div class="course-link">
+        Начать обучение <span>↗</span>
+      </div>
+    </article>
+
+    <article class="card"
+      data-tags="start school"
+      data-grades="1,2,3,4">
+      <span class="pill">1–4 классы</span>
+      <div class="card-icon">🎨</div>
+      <h3>Английский для младших школьников</h3>
+      <p>
+        Учимся через игры, карточки, истории,
+        задания и разговорную практику.
+        Формируем прочную языковую базу.
+      </p>
+      <div class="course-link">
+        Выбрать группу <span>↗</span>
+      </div>
+    </article>
+
+    <article class="card"
+      data-tags="school"
+      data-grades="5,6,7,8">
+      <span class="pill">5–8 классы</span>
+      <div class="card-icon">📚</div>
+      <h3>Школьный английский</h3>
+      <p>
+        Помогаем разобраться с грамматикой,
+        расширить словарный запас, улучшить чтение,
+        письмо и понимание английской речи.
+      </p>
+      <div class="course-link">
+        Узнать подробнее <span>↗</span>
+      </div>
+    </article>
+
+    <article class="card"
+      data-tags="individual school"
+      data-grades="1,2,3,4,5,6,7,8,9,10,11">
+      <span class="pill">Индивидуально</span>
+      <div class="card-icon">🛠️</div>
+      <h3>Помощь, если появились пробелы</h3>
+      <p>
+        Разбираем непонятные темы, восстанавливаем
+        базу и помогаем догнать школьную программу.
+        Занимаемся в комфортном темпе.
+      </p>
+      <div class="course-link">
+        Закрыть пробелы <span>↗</span>
+      </div>
+    </article>
+
+    <article class="card"
+      data-tags="start school"
+      data-grades="5,6,7,8,9,10,11">
+      <span class="pill">Разговорная практика</span>
+      <div class="card-icon">💬</div>
+      <h3>Английский для подростков</h3>
+      <p>
+        Разговорные задания, актуальные темы,
+        видео, тексты и работа над уверенностью
+        в общении на английском.
+      </p>
+      <div class="course-link">
+        Найти свою группу <span>↗</span>
+      </div>
+    </article>
+
+    <article class="card"
+      data-tags="exam"
+      data-grades="9">
+      <span class="pill">9 класс</span>
+      <div class="card-icon">🎯</div>
+      <h3>Подготовка к ОГЭ</h3>
+      <p>
+        Разбираем формат экзамена, тренируем
+        задания по разделам и учимся распределять
+        время на экзамене.
+      </p>
+      <div class="course-link">
+        Обсудить подготовку <span>↗</span>
+      </div>
+    </article>
+
+    <article class="card"
+      data-tags="exam"
+      data-grades="10,11">
+      <span class="pill">10–11 классы</span>
+      <div class="card-icon">🏆</div>
+      <h3>Подготовка к ЕГЭ</h3>
+      <p>
+        Последовательно готовимся ко всем разделам:
+        аудирование, чтение, грамматика, письмо
+        и устная часть.
+      </p>
+      <div class="course-link">
+        Составить план <span>↗</span>
+      </div>
+    </article>
+
+    <article class="card"
+      data-tags="individual"
+      data-grades="1,2,3,4,5,6,7,8,9,10,11">
+      <span class="pill">Индивидуально</span>
+      <div class="card-icon">✨</div>
+      <h3>Занятия один на один</h3>
+      <p>
+        Персональная программа, гибкий график
+        и внимание к задачам конкретного ребёнка.
+        Подходит для разных уровней.
+      </p>
+      <div class="course-link">
+        Подобрать формат <span>↗</span>
+      </div>
+    </article>
+
+    <div class="empty" id="empty">
+      Не нашли подходящий вариант?
+      Оставьте заявку — поможем подобрать программу.
+    </div>
+
+  </div>
+</div>
+</section>
+
+<section id="method">
+<div class="container">
+
+  <div class="kicker">Путь ученика</div>
+  <h2>Можно начать в любой точке</h2>
+
+  <p class="intro">
+    Не нужно стесняться пробелов или ждать следующего
+    учебного года. Важно подобрать подходящий шаг именно сейчас.
+  </p>
+
+  <div class="path-grid">
+
+    <div class="path">
+      <div class="number">ШАГ 01</div>
+      <div class="emoji">🌱</div>
+      <h3>Начинаем с нуля</h3>
+      <p>
+        Определяем стартовый уровень и идём
+        от простого к сложному. Формируем базу
+        и привычку заниматься регулярно.
+      </p>
+    </div>
+
+    <div class="path">
+      <div class="number">ШАГ 02</div>
+      <div class="emoji">🛠️</div>
+      <h3>Закрываем пробелы</h3>
+      <p>
+        Если школьная программа стала непонятной,
+        занимаемся индивидуально и разбираем
+        сложные темы в удобном темпе.
+      </p>
+    </div>
+
+    <div class="path">
+      <div class="number">ШАГ 03</div>
+      <div class="emoji">🚀</div>
+      <h3>Продолжаем в группе</h3>
+      <p>
+        Когда база восстановлена, переходим
+        в подходящую группу, практикуем язык
+        и движемся к новым целям.
+      </p>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<section class="white-section" id="exam">
+<div class="container feature">
+
+  <div class="feature-art">A+</div>
+
+  <div>
+    <div class="kicker">Экзамены без паники</div>
+    <h2>ОГЭ и ЕГЭ — с понятным планом</h2>
+
+    <p class="intro">
+      Подготовка начинается с определения текущего уровня.
+      Вместе составляем план, выбираем приоритетные темы
+      и постепенно отрабатываем экзаменационные задания.
+    </p>
+
+    <ul class="checklist">
+      <li>✓ План занятий с учётом времени до экзамена</li>
+      <li>✓ Практика заданий разных типов</li>
+      <li>✓ Разбор ошибок и сложных тем</li>
+      <li>✓ Подготовка к письменной и устной частям</li>
+    </ul>
+
+    <a class="btn" href="#contact">Обсудить подготовку ↗</a>
+  </div>
+
+</div>
+</section>
+
+<section id="faq">
+<div class="container">
+
+  <div class="kicker">Частые вопросы</div>
+  <h2>Всё можно обсудить</h2>
+
+  <div class="faq">
+
+    <div class="faq-item open">
+      <button class="question">
+        Можно ли прийти, если ребёнок совсем не знает английский?
+        <span>＋</span>
+      </button>
+      <div class="answer">
+        Да. Есть направление для начинающих с нуля.
+        Подберём группу по возрасту и стартовому уровню,
+        а не только по классу.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">
+        Что делать, если в школе уже появились проблемы?
+        <span>＋</span>
+      </button>
+      <div class="answer">
+        Можно начать с индивидуальных занятий:
+        определить пробелы, разобрать сложные темы
+        и восстановить базу. После этого ребёнок сможет
+        продолжить обучение в группе.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">
+        Как понять, какая группа подойдёт?
+        <span>＋</span>
+      </button>
+      <div class="answer">
+        Оставьте заявку и укажите класс и цель.
+        Перед стартом уточним опыт изучения языка
+        и поможем подобрать подходящий формат.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">
+        Готовите к ОГЭ и ЕГЭ?
+        <span>＋</span>
+      </button>
+      <div class="answer">
+        На сайте предусмотрены отдельные направления
+        подготовки к ОГЭ и ЕГЭ. План занятий зависит
+        от текущего уровня и даты экзамена.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="question">
+        Можно сначала заниматься индивидуально, а потом в группе?
+        <span>＋</span>
+      </button>
+      <div class="answer">
+        Да, это один из основных маршрутов школы:
+        сначала закрываем пробелы один на один,
+        затем переходим к занятиям в группе,
+        когда ребёнок готов.
+      </div>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+
+  <div class="cta-panel">
+
+    <div>
+      <div class="kicker" style="color:#ffd65a">
+        Первый шаг — знакомство
+      </div>
+
+      <h2>Подберём английский под вашего ребёнка</h2>
+
+      <p>
+        Расскажите, в каком классе учится ребёнок
+        и что хочется улучшить. Поможем выбрать
+        программу и формат занятий.
+      </p>
+    </div>
+
+    <form class="form" id="leadForm">
+      <h3>Подобрать программу</h3>
+      <p>Заполните несколько полей.</p>
+
+      <input
+        name="parent"
+        placeholder="Как к вам обращаться"
+        required
+      >
+
+      <input
+        name="contact"
+        placeholder="Телефон или Telegram"
+        required
+      >
+
+      <select name="grade" required>
+        <option value="">Класс ребёнка</option>
+        <option>1 класс</option>
+        <option>2 класс</option>
+        <option>3 класс</option>
+        <option>4 класс</option>
+        <option>5 класс</option>
+        <option>6 класс</option>
+        <option>7 класс</option>
+        <option>8 класс</option>
+        <option>9 класс</option>
+        <option>10 класс</option>
+        <option>11 класс</option>
+      </select>
+
+      <select name="goal">
+        <option value="">Какая задача?</option>
+        <option>Начать с нуля</option>
+        <option>Подтянуть школьную программу</option>
+        <option>Индивидуальные занятия</option>
+        <option>Подготовка к ОГЭ</option>
+        <option>Подготовка к ЕГЭ</option>
+        <option>Пока не знаю</option>
+      </select>
+
+      <button class="btn yellow" type="submit">
+        Хочу подобрать курс ↗
+      </button>
+
+      <p class="form-note">
+        Сейчас форма работает в демонстрационном режиме.
+        Для получения реальных заявок её нужно подключить
+        к почте, Telegram или CRM.
+      </p>
+
+      <div id="success">
+        Спасибо! Демонстрационная отправка выполнена.
+        Чтобы заявки действительно приходили вам,
+        подключите форму к сервису обработки заявок.
+      </div>
+    </form>
+
+  </div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<div class="container footer-row">
+  <a class="logo" href="#top">лингво<span>класс</span></a>
+  <small>Английский для школьников с 1 по 11 класс</small>
+  <a href="#contact">Связаться с нами ↗</a>
+</div>
+</footer>
+
+<script>
+// Фильтрация курсов
+
+const filters = document.querySelectorAll(".filter");
+const cards = document.querySelectorAll(".card");
+const search = document.getElementById("search");
+const grade = document.getElementById("grade");
+const empty = document.getElementById("empty");
+
+let activeFilter = "all";
+
+function updateCards() {
+  const query = search.value.trim().toLowerCase();
+  const selectedGrade = grade.value;
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const tags = card.dataset.tags.split(" ");
+    const grades = card.dataset.grades.split(",");
+    const text = card.innerText.toLowerCase();
+
+    const matchesFilter =
+      activeFilter === "all" ||
+      tags.includes(activeFilter);
+
+    const matchesSearch =
+      !query || text.includes(query);
+
+    const matchesGrade =
+      selectedGrade === "all" ||
+      grades.includes(selectedGrade);
+
+    const visible =
+      matchesFilter && matchesSearch && matchesGrade;
+
+    card.style.display = visible ? "flex" : "none";
+
+    if (visible) visibleCount++;
+  });
+
+  empty.style.display = visibleCount ? "none" : "block";
+}
+
+filters.forEach(button => {
+  button.addEventListener("click", () => {
+    filters.forEach(item => item.classList.remove("active"));
+
+    button.classList.add("active");
+    activeFilter = button.dataset.filter;
+
+    updateCards();
+  });
+});
+
+search.addEventListener("input", updateCards);
+grade.addEventListener("change", updateCards);
+
+// Раскрытие ответов на вопросы
+
+document.querySelectorAll(".question").forEach(button => {
+  button.addEventListener("click", () => {
+    button.parentElement.classList.toggle("open");
+  });
+});
+
+// Демонстрационная форма заявки
+
+document.getElementById("leadForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  document.getElementById("success").style.display = "block";
+});
+</script>
+
+</body>
+</html>
